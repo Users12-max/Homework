@@ -1,0 +1,31 @@
+#Bu birinci sorunun çözümü
+def flatter(l):
+  l1 = l.copy()
+  global flattened
+  flattened = []
+  return flatit(l1)
+def flatit (l1):
+  for a in l1:
+    if not type(a) in [tuple,list,set]:
+      flattened.append(a)
+    else:
+      flatit(a)
+  return flattened
+
+print(flatter([1,2,("a","b"),"e",(45,56,67)]))
+#Bu da ikinci sorunun çözümü
+
+def reverser(l):
+  l1 = l.copy()
+  global reversed
+  reversed = []
+  return reverseit(l1)
+def reverseit (l1):
+  l1.reverse()
+  for a in l1:
+    if type(a) in [tuple, list, set]:
+      reverseit(a)
+  return l1
+
+
+print(reverser([[1, 2], [3, [4,"a"]], [5, 6, 7]]))
